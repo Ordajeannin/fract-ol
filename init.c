@@ -40,6 +40,9 @@ void    data_init(t_data *data)
 
     data->zoom = 200;
     data->it_max = 50;
+    data->axe = 'r';
+    data->step = 0.01;
+    data->graph = 0;
 }
 
 int    data_set(t_data *data)

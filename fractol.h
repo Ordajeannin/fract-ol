@@ -47,6 +47,9 @@ typedef struct s_data
     int     x;
     int     y;
     int    **color_set;
+    char    axe;
+    double     step;
+    int    graph;
 
 }   t_data;
 
@@ -65,6 +68,8 @@ typedef struct s_complex
     double i;
 }   t_complex;
 
+void click_configuration(t_data *data, int x, int y);
+void switch_julia_configuration(int keycode, t_data *data);
 void color_init(t_data *data);
 int get_blue(int trgb);
 int get_green(int trgb);
@@ -84,6 +89,10 @@ int handle_close(t_data *data);
 int handle_mouse(int keycode, int x, int y, t_data *data);
 int render(t_data *data);
 int which_fract(t_data *data, int ac, char **av);
-
+void	zoom(t_data *f, double zoom);
+void	move(t_data *f, double distance, char direction);
+void    zoom_in(t_data *data, int x, int y);
+void    graph_switch(t_data *data);
+void    graph_draw(t_data *data);
 
 #endif

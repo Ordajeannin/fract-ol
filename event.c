@@ -2,7 +2,7 @@
 
 int	handle_keypress(int keycode, t_data *data)
 {
-    
+    // ft_printf("keycode : %d\n", data->step;);
 	if (keycode == XK_Escape)
 	{
 		mlx_destroy_window(data->mlx, data->win);
@@ -11,6 +11,13 @@ int	handle_keypress(int keycode, t_data *data)
         // mlx_destroy_display(data->mlx);
         // free(data->mlx);
 	}
+	else if (keycode == 103)
+		graph_switch(data);
+	// else if (keycode == 103 && data->graph == "off") 	//graph on
+	// 	data->graph = "on";
+	// else if (keycode == 103 && data->graph == "on")		//graph off
+	// 	data->graph = "off";
+	switch_julia_configuration(keycode, data);
     if (keycode == 65361) // left arrow
 
     if (keycode == 65362) // up arrow
@@ -29,77 +36,16 @@ int handle_close(t_data *data)
 	return (0);
 }
 
-static void	zoom(t_data *f, double zoom)
-{
-	double	center_r;
-	double	center_i;
-
-	center_r = f->min_r - f->max_r;
-	center_i = f->max_i - f->min_i;
-	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;
-	f->min_r = f->max_r + zoom * center_r;
-	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
-	f->max_i = f->min_i + zoom * center_i;
-}
-
-static void	move(t_data *f, double distance, char direction)
-{
-	double	center_r;
-	double	center_i;
-
-	center_r = f->max_r - f->min_r;
-	center_i = f->max_i - f->min_i;
-	if (direction == 'R')
-	{
-		f->min_r += center_r * distance;
-		f->max_r += center_r * distance;
-	}
-	else if (direction == 'L')
-	{
-		f->min_r -= center_r * distance;
-		f->max_r -= center_r * distance;
-	}
-	else if (direction == 'D')
-	{
-		f->min_i -= center_i * distance;
-		f->max_i -= center_i * distance;
-	}
-	else if (direction == 'U')
-	{
-		f->min_i += center_i * distance;
-		f->max_i += center_i * distance;
-	}
-}
-
-
-int	handle_mouse(int keycode, int x, int y, t_data *mlx)
+int	handle_mouse(int keycode, int x, int y, t_data *data)
 {
 	if (keycode == 4)
-	{
-		zoom(mlx, 0.5);
-		x -= WIDTH / 2;
-		y -= HEIGHT / 2;
-		if (x < 0)
-			move(mlx, (double)x * -1 / WIDTH, 'L');
-		else if (x > 0)
-			move(mlx, (double)x / WIDTH, 'R');
-		if (y < 0)
-			move(mlx, (double)y * -1 / HEIGHT, 'U');
-		else if (y > 0)
-			move (mlx, (double)y / HEIGHT, 'D');
-	}
+		zoom_in(data, x, y);
 	else if (keycode == 5)
-		zoom(mlx, 2);
-	else if (keycode == 3)
-	{
-		if (mlx->fract == 1)
-		{
-			mlx->jr = mlx->min_r + (double)x * (mlx->max_r - mlx->min_r) / WIDTH;
-			mlx->ji = mlx->max_i + (double)y * (mlx->min_i - mlx->max_i) / HEIGHT;
-		}
-	}
+		zoom(data, 2);
+	else if (keycode == 1)
+		click_configuration(data, x, y);
 	else
 		return (0);
-	render(mlx);
+	render(data);
 	return (0);
 }

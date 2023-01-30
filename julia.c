@@ -10,49 +10,49 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
     *(unsigned int*) pixel = color;
 }
 
-static int	calculate_fractal(t_data *f, double zr, double zi)
+static int	calculate_fractal(t_data *data, double zr, double zi)
 {
 	int		n;
 	double	tmp;
 
-	f->jr = 0.285;
-	f->ji = 0.01;
+	// data->jr = 0.285;
+	// data->ji = 0.01;
 	n = 0;
 	while (n < IT_MAX)
 	{
 		if ((zi * zi + zr * zr) > 4.0)
 			break ;
-		tmp = 2 * zr * zi + f->ji;
-		zr = zr * zr - zi * zi + f->jr;
+		tmp = 2 * zr * zi + data->ji;
+		zr = zr * zr - zi * zi + data->jr;
 		zi = tmp;
 		n++;
 	}
 	return (n);
 }
 
-void	julia(t_data *f)
+void	julia(t_data *data)
 {
 	int		x;
 	int		y;
-	double	pr;
-	double	pi;
+	double	pos_r;
+	double	pos_i;
 	int		nb_iter;
 
-	mlx_clear_window(f->mlx, f->win);
+	mlx_clear_window(data->mlx, data->win);
 	y = -1;
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 		{
-			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-			pi = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
-			nb_iter = calculate_fractal(f, pr, pi);
+			pos_r = data->min_r + (double)x * (data->max_r - data->min_r) / WIDTH;
+			pos_i = data->max_i + (double)y * (data->min_i - data->max_i) / HEIGHT;
+			nb_iter = calculate_fractal(data, pos_r, pos_i);
 			if (nb_iter < IT_MAX)
-				my_mlx_pixel_put(f, x, y, encode_trgb(255,  nb_iter * 170 % 255, 255, 255));
+				my_mlx_pixel_put(data, x, y, encode_trgb(255,  nb_iter * 170 % 255, 255, 255));
 			else
-				my_mlx_pixel_put(f, x, y, 0x00000000);
+				my_mlx_pixel_put(data, x, y, 0x00000000);
 		}
 	}
-	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	// mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }

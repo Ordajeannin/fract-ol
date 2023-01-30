@@ -103,7 +103,7 @@ void mandelbrot(t_data *data)
 			// 	my_mlx_pixel_put(data, x, y, encode_trgb(255, (255/IT_MAX) * nb_iter, 255 - nb_iter, 255 - nb_iter));
 		}
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	// mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
 
 /*smooth coloring : 
@@ -138,12 +138,9 @@ int render(t_data *data)
     {
         julia(data);
     }
-    // if (data->fract == 2)
-    // {
-    //     render_background(data, RED);
-    //     render_rectangle(data, (t_rect){WIDTH - 100, HEIGHT - 100, 
-    //             100, 100, BLUE});
-    // }
     // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	if (data->graph == 1)
+		graph_draw(data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
     return (0);
 }
