@@ -35,10 +35,6 @@ typedef struct s_data
     double  ji;
     double  jr;
 
-    double  sx;
-    double  rx;
-    double  fx;
-
     double  zoom;
     int     color;
     int     it;

@@ -48,10 +48,14 @@ void	julia(t_data *data)
 			pos_r = data->min_r + (double)x * (data->max_r - data->min_r) / WIDTH;
 			pos_i = data->max_i + (double)y * (data->min_i - data->max_i) / HEIGHT;
 			nb_iter = calculate_fractal(data, pos_r, pos_i);
-			if (nb_iter < IT_MAX)
-				my_mlx_pixel_put(data, x, y, encode_trgb(255,  nb_iter * 170 % 255, 255, 255));
-			else
-				my_mlx_pixel_put(data, x, y, 0x00000000);
+            if (nb_iter == IT_MAX)
+			    my_mlx_pixel_put(data, x, y, 0x00000000);
+            else
+                my_mlx_pixel_put(data, x, y, encode_trgb(255, nb_iter * 5, nb_iter * 10, nb_iter * 20));
+			// if (nb_iter < IT_MAX)
+			// 	my_mlx_pixel_put(data, x, y, encode_trgb(255,  nb_iter * 170 % 255, 255, 255));
+			// else
+			// 	my_mlx_pixel_put(data, x, y, 0x00000000);
 		}
 	}
 	// mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);

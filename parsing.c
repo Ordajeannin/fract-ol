@@ -61,8 +61,8 @@ static void set_julia(t_data *data, int ac, char **av)
 {
     if (ac == 2)
     {
-        data->jr = 0.285;
-	    data->ji = 0.01;
+        data->jr = 0.075347;
+	    data->ji = -0.652546;
         // data->jr = 0;
         // data->ji = 0;
     }

@@ -28,16 +28,7 @@ void    data_init(t_data *data)
     data->endian = 0;
     data->ll = 0;
     data->bpp = 0;
-
-    // data->min_r = -2.0;
-    // data->max_r = 1.0;
-    // data->min_i = -1.0;
-    // data->max_i = 1.0;
     scop_init(data);
-    data->sx = 2.0;
-    data->rx = 0.5;
-    data->fx = 1.0;
-
     data->zoom = 200;
     data->it_max = 50;
     data->axe = 'r';

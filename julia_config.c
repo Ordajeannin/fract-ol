@@ -27,7 +27,7 @@ static void modify_step(int keycode, t_data *data)
 		data->step = 0.0001;
 	else if (keycode == 56)			// 8-> slown down
 		data->step = 0.00005;
-	else if (keycode == 57)		// 9-> lowest step
+	else if (keycode == 57)	    	// 9-> lowest step
 		data->step = 0.00001;
 	else if (keycode == 48)			// 0-> can't be more precise
 		data->step = 0.000001;
