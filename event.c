@@ -1,38 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 16:45:28 by ajeannin          #+#    #+#             */
+/*   Updated: 2023/02/01 17:37:23 by ajeannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	handle_keypress(int keycode, t_data *data)
 {
-    // ft_printf("keycode : %d\n", data->step;);
 	if (keycode == XK_Escape)
 	{
 		mlx_destroy_window(data->mlx, data->win);
 		data->win = NULL;
-        mlx_destroy_image(data->mlx, data->img);
-        // mlx_destroy_display(data->mlx);
-        // free(data->mlx);
+		mlx_destroy_image(data->mlx, data->img);
 	}
 	else if (keycode == 103)
 		graph_switch(data);
-	// else if (keycode == 103 && data->graph == "off") 	//graph on
-	// 	data->graph = "on";
-	// else if (keycode == 103 && data->graph == "on")		//graph off
-	// 	data->graph = "off";
 	switch_julia_configuration(keycode, data);
-    if (keycode == 65361) // left arrow
-
-    if (keycode == 65362) // up arrow
-
-    if (keycode == 65363) // right arrow
-
-    if (keycode == 65364) // down arrow
 	return (0);
 }
 
-int handle_close(t_data *data)
+int	handle_close(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	data->win = NULL;
-    mlx_destroy_image(data->mlx, data->img);
+	mlx_destroy_image(data->mlx, data->img);
 	return (0);
 }
 

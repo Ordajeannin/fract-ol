@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 16:45:44 by ajeannin          #+#    #+#             */
+/*   Updated: 2023/02/01 18:50:05 by ajeannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-    char *pixel;
-    int index;
+	char	*pixel;
+	int		index;
 
-    index = (y * data->ll + x * (data->bpp / 8));
-    pixel = data->img_addr + index;
-    *(unsigned int*) pixel = color;
+	index = (y * data->ll + x * (data->bpp / 8));
+	pixel = data->img_addr + index;
+	*(unsigned int *) pixel = color;
 }
 
 static int	calculate_fractal(t_data *data, double zr, double zi)
@@ -15,8 +27,6 @@ static int	calculate_fractal(t_data *data, double zr, double zi)
 	int		n;
 	double	tmp;
 
-	// data->jr = 0.285;
-	// data->ji = 0.01;
 	n = 0;
 	while (n < IT_MAX)
 	{
@@ -45,18 +55,14 @@ void	julia(t_data *data)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			pos_r = data->min_r + (double)x * (data->max_r - data->min_r) / WIDTH;
-			pos_i = data->max_i + (double)y * (data->min_i - data->max_i) / HEIGHT;
+			pos_r = get_pos_r(data, (double)x);
+			pos_i = get_pos_i(data, (double)y);
 			nb_iter = calculate_fractal(data, pos_r, pos_i);
-            if (nb_iter == IT_MAX)
-			    my_mlx_pixel_put(data, x, y, 0x00000000);
-            else
-                my_mlx_pixel_put(data, x, y, encode_trgb(255, nb_iter * 5, nb_iter * 10, nb_iter * 20));
-			// if (nb_iter < IT_MAX)
-			// 	my_mlx_pixel_put(data, x, y, encode_trgb(255,  nb_iter * 170 % 255, 255, 255));
-			// else
-			// 	my_mlx_pixel_put(data, x, y, 0x00000000);
+			if (nb_iter == IT_MAX)
+				my_mlx_pixel_put(data, x, y, 0x00000000);
+			else
+				my_mlx_pixel_put(data, x, y,
+					encode_trgb(255, nb_iter * 5, nb_iter * 10, nb_iter * 20));
 		}
 	}
-	// mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
