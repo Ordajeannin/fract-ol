@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:51 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:14:01 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:00:02 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	main(int ac, char **av)
 		free(data.mlx);
 	}
 	else
-		ft_printf("use ./aout rectangle dumb ass\n");
+		ft_error(&data);
 	return (0);
 }

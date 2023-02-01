@@ -6,66 +6,54 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:03 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:57:27 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:01:43 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	atod_utils(t_data *data, char *nbr, int *is_neg, int *i)
+static int	skip_space_sign(char *str, int *is_neg)
 {
-	int	tmp;
-	int	dot_count;
-
-	tmp = ft_strlen(nbr);
-	dot_count = 0;
-	if (nbr[*i] == '-')
-	{
-		*is_neg = -1;
-		i++;
-	}
-	else
-		*is_neg = 1;
-	if (nbr[*i] == '.' || !ft_isdigit(nbr[*i]))
-		return (ft_error(data) + 1);
-	while (nbr[*i] && dot_count <= 1 && (ft_isdigit(nbr[*i]) || nbr[*i] == '.'))
-	{
-		if (nbr[*i] == '.')
-			dot_count += 1;
-		i++;
-	}
-	if (*i != tmp || dot_count > 1)
-		return (ft_error(data) + 1);
-	*i = 0;
-	return (0);
-}
-
-static double	ft_atod(t_data *data, char *nbr)
-{
-	int		i;
-	int		is_neg;
-	double	nb;
-	double	div;
+	int	i;
 
 	i = 0;
-	is_neg = 0;
-	nb = 0;
-	div = 10;
-	if (atod_utils(data, nbr, &is_neg, &i) == 1)
-		return (-69);
-	while (nbr[i] && nbr[i] != '.')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		nb = (nb * 10) + (nbr[i] - '0');
+		if (str[i] == '-')
+			*is_neg *= -1;
+		i++;
+	}
+	return (i);
+}
+
+static double	ft_atod(char *nbr)
+{
+	int		i;
+	double	nb;
+	int		is_neg;
+	double	div;
+
+	nb = 0;
+	div = 0.1;
+	is_neg = 1;
+	i = skip_space_sign(nbr, &is_neg);
+	while (nbr[i] && ft_isdigit(nbr[i]) && nbr[i] != '.')
+	{
+		nb = (nb * 10.0) + (nbr[i] - '0');
 		i++;
 	}
 	if (nbr[i] == '.')
 		i++;
-	while (nbr[i])
+	while (nbr[i] && ft_isdigit(nbr[i]))
 	{
-		nb = nb + ((nbr[i] - '0') / div);
-		div *= 10;
+		nb = nb + ((nbr[i] - '0') * div);
+		div *= 0.1;
 		i++;
 	}
+	if (nbr[i] && !ft_isdigit(nbr[i]))
+		return (-42);
 	return (nb * is_neg);
 }
 
@@ -78,8 +66,8 @@ static void	set_julia(t_data *data, int ac, char **av)
 	}
 	else
 	{
-		data->jr = ft_atod(data, av[2]);
-		data->ji = ft_atod(data, av[3]);
+		data->jr = ft_atod(av[2]);
+		data->ji = ft_atod(av[3]);
 	}
 	if (data->jr >= 2 || data->ji >= 2)
 		ft_error(data);

@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:44 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:50:05 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:13:59 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,30 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	pixel = data->img_addr + index;
 	*(unsigned int *) pixel = color;
 }
+
+// static int	calculate_fractal(t_data *data, double zr, double zi)
+// {
+// 	int		n;
+// 	double	tmp;
+// 	double complex	z;
+
+// 	n = 0;
+// 	while (n < IT_MAX)
+// 	{
+// 		if ((zi * zi + zr * zr) > 4.0)
+// 			break ;
+// 		tmp = 2 * zr * zi + data->ji;
+// 		zr = zr * zr - zi * zi + data->jr;
+// 		zi = tmp;
+// 		n++;
+// 	}
+// 	z = zr + zi * I;
+// 	if (n == IT_MAX)
+// 		return (n);
+// 	else
+// 		return (n - log(log2(abs(z))));
+// 	return (n);
+// }
 
 static int	calculate_fractal(t_data *data, double zr, double zi)
 {

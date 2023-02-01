@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:41 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:11:24 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:58:47 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static void	modify_step(int keycode, t_data *data)
 		data->step = 0.000001;
 }
 
+// printf ("jr = %lf ji = %lf step = %lf graph = %d\n", data->jr, data->ji, data->step, data->graph);
 void	switch_julia_configuration(int keycode, t_data *data)
 {
-	ft_printf("keycode : %d\n", keycode);
 	if (keycode >= 48 && keycode <= 57)
 		modify_step(keycode, data);
 	if (keycode == 114)
@@ -62,5 +62,4 @@ void	switch_julia_configuration(int keycode, t_data *data)
 		data->jr -= data->step;
 	if (keycode == 45 && data->axe == 'i' && data->ji >= -2 + data->step)
 		data->ji -= data->step;
-	printf ("jr = %lf ji = %lf step = %lf graph = %d\n", data->jr, data->ji, data->step, data->graph);
 }
