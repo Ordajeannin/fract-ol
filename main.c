@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:51 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 21:00:02 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:40:42 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 		mlx_destroy_display(data.mlx);
 		free(data.mlx);
 	}
-	else
-		ft_error(&data);
+	// else
+	// 	ft_error(&data);
 	return (0);
 }

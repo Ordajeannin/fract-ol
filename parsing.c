@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:03 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 21:01:43 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:54:29 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static double	ft_atod(char *nbr)
 	return (nb * is_neg);
 }
 
-static void	set_julia(t_data *data, int ac, char **av)
+static int	set_julia(t_data *data, int ac, char **av)
 {
 	if (ac == 2)
 	{
@@ -68,11 +68,12 @@ static void	set_julia(t_data *data, int ac, char **av)
 	{
 		data->jr = ft_atod(av[2]);
 		data->ji = ft_atod(av[3]);
+		printf("jr = %lf\nji = %lf\n", data->jr, data->ji);
 	}
 	if (data->jr >= 2 || data->ji >= 2)
-		ft_error(data);
-	if (data->jr <= 2 || data->ji <= 2)
-		ft_error(data);
+		return (1);
+	if (data->jr <= -2 || data->ji <= -2)
+		return (1);
 }
 
 int	which_fract(t_data *data, int ac, char **av)
@@ -84,7 +85,8 @@ int	which_fract(t_data *data, int ac, char **av)
 	else if (ft_strncmp(av[1], "julia", 6) == 0 && (ac == 2 || ac == 4))
 	{
 		data->fract = 1;
-		set_julia(data, ac, av);
+		if (set_julia(data, ac, av) == 1)
+			return (ft_error(data));
 	}
 	else if (ft_strncmp(av[1], "rect", 5) == 0 && ac == 2)
 	{
