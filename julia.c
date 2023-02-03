@@ -6,21 +6,11 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:44 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:13:59 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:55:33 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*pixel;
-	int		index;
-
-	index = (y * data->ll + x * (data->bpp / 8));
-	pixel = data->img_addr + index;
-	*(unsigned int *) pixel = color;
-}
 
 // static int	calculate_fractal(t_data *data, double zr, double zi)
 // {
@@ -46,22 +36,30 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 // 	return (n);
 // }
 
-static int	calculate_fractal(t_data *data, double zr, double zi)
+static double	calculate_fractal(t_data *data, double zr, double zi)
 {
-	int		n;
-	double	tmp;
+	int n;
+	double tmp;
+	t_complex j;
+	t_complex z;
 
+	j.r = data->jr;
+	j.i = data->ji;
+	z.r = zr;
+	z.i = zi;
 	n = 0;
-	while (n < IT_MAX)
+	while (n < IT_MAX && ft_abs(z) <= 2)
 	{
-		if ((zi * zi + zr * zr) > 4.0)
-			break ;
-		tmp = 2 * zr * zi + data->ji;
-		zr = zr * zr - zi * zi + data->jr;
-		zi = tmp;
+		tmp = 2 * z.r * z.i + j.i;
+		z.r = z.r * z.r - z.i * z.i + j.r;
+		z.i = tmp;
 		n++;
 	}
-	return (n);
+	// return (n);
+	if (n == IT_MAX)
+		return (n);
+	else
+		return (n + 1 - log(log2(ft_abs(z))));
 }
 
 void	julia(t_data *data)
@@ -70,7 +68,7 @@ void	julia(t_data *data)
 	int		y;
 	double	pos_r;
 	double	pos_i;
-	int		nb_iter;
+	double		nb_iter;
 
 	mlx_clear_window(data->mlx, data->win);
 	y = -1;
@@ -85,8 +83,7 @@ void	julia(t_data *data)
 			if (nb_iter == IT_MAX)
 				my_mlx_pixel_put(data, x, y, 0x00000000);
 			else
-				my_mlx_pixel_put(data, x, y,
-					encode_trgb(255, nb_iter * 5, nb_iter * 10, nb_iter * 20));
+				apply_color(data, x, y, nb_iter);
 		}
 	}
 }

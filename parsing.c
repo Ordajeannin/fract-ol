@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:03 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 13:54:29 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:27:40 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	which_fract(t_data *data, int ac, char **av)
 		if (set_julia(data, ac, av) == 1)
 			return (ft_error(data));
 	}
-	else if (ft_strncmp(av[1], "rect", 5) == 0 && ac == 2)
+	else if (ft_strncmp(av[1], "burningship", 12) == 0 && ac == 2)
 	{
 		data->fract = 2;
 	}

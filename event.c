@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:28 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 17:37:23 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:15:04 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	handle_keypress(int keycode, t_data *data)
 	}
 	else if (keycode == 103)
 		graph_switch(data);
+	else if (keycode == 32)
+		data->palette++;
 	switch_julia_configuration(keycode, data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:37 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 17:44:00 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:09:02 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	scop_init(t_data *data)
 {
-	if (data->fract == 0 || data->fract == 2)
+	if (data->fract == 0)
 	{
 		data->min_r = -2.0;
 		data->max_r = 1.0;
@@ -27,6 +27,13 @@ static void	scop_init(t_data *data)
 		data->max_r = 2.0;
 		data->min_i = -2.0;
 		data->max_i = 2.0;
+	}
+	if (data->fract == 2)
+	{
+		data->min_r = -2.0;
+		data->max_r = -1.5;
+		data->min_i = 0.10;
+		data->max_i = -0.25;
 	}
 }
 
@@ -45,6 +52,7 @@ void	data_init(t_data *data)
 	data->axe = 'r';
 	data->step = 0.01;
 	data->graph = 0;
+	data->palette = 0;
 }
 
 int	data_set(t_data *data)

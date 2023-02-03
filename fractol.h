@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:33 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:29:31 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:12:57 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@
 
 # define WIDTH 1080
 # define HEIGHT 1080
-# define IT_MAX 60
+# define IT_MAX 1000
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
+# define PALETTE 6
 
 typedef struct s_data
 {
@@ -55,6 +56,7 @@ typedef struct s_data
 	char	axe;
 	double	step;
 	int		graph;
+	int		palette;
 
 }	t_data;
 
@@ -94,5 +96,9 @@ double	get_pos_r(t_data *data, double x);
 double	get_pos_i(t_data *data, double y);
 double	get_pos_x(t_data *data);
 double	get_pos_y(t_data *data);
+void	apply_color(t_data *data, int x, int y, double it);
+int		ft_abs(t_complex z);
+void	burningship(t_data *data);
+int		ft_abs2(double v);
 
 #endif
