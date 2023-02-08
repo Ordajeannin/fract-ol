@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 20:42:32 by ajeannin          #+#    #+#             */
+/*   Updated: 2023/02/08 20:43:44 by ajeannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static double	calculate_fractal(t_data *data, double cr, double ci)
 {
-	int n;
-	double tmp;
-	t_complex c;
-	t_complex z;
+	int			n;
+	double		tmp;
+	t_complex	c;
+	t_complex	z;
 
 	c.r = cr;
 	c.i = ci;
@@ -21,8 +33,6 @@ static double	calculate_fractal(t_data *data, double cr, double ci)
 		z.i = tmp;
 		n++;
 	}
-	// printf("here! n = %d\n", n);
-	// return (n);
 	if (n == IT_MAX)
 		return (n);
 	else
@@ -47,7 +57,6 @@ void	burningship(t_data *data)
 			pos_r = get_pos_r(data, (double)x);
 			pos_i = get_pos_i(data, (double)y);
 			nb_iter = calculate_fractal(data, pos_r, pos_i);
-			// printf("iter = %f\n", nb_iter);
 			if (nb_iter == IT_MAX)
 				my_mlx_pixel_put(data, x, y, 0x00000000);
 			else

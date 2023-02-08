@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:57 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 20:58:15 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:46:36 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@
 
 static double	calculate_fractal(t_data *data, double cr, double ci)
 {
-	int n;
-	double tmp;
-	t_complex c;
-	t_complex z;
+	int			n;
+	double		tmp;
+	t_complex	c;
+	t_complex	z;
 
 	c.r = cr;
 	c.i = ci;
@@ -71,7 +71,7 @@ void	mandelbrot(t_data *data)
 	int		y;
 	double	pos_r;
 	double	pos_i;
-	double		nb_iter;
+	double	nb_iter;
 
 	mlx_clear_window(data->mlx, data->win);
 	y = -1;

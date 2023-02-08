@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   colors3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 20:39:50 by ajeannin          #+#    #+#             */
+/*   Updated: 2023/02/08 20:40:20 by ajeannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	apply_color(t_data *data, int x, int y, double it)
@@ -13,8 +25,10 @@ void	apply_color(t_data *data, int x, int y, double it)
 	if (data->palette % PALETTE == 4)
 		color = encode_trgb(255, it * 5, it * 10, it * 20);
 	if (data->palette % PALETTE == 0)
-		color = encode_trgb(255, it * 5 * 255 / IT_MAX, it * 10 * 255 / IT_MAX, it * 20 * 255 / IT_MAX);
+		color = encode_trgb(255, it * 5 * 255 / IT_MAX,
+				it * 10 * 255 / IT_MAX, it * 20 * 255 / IT_MAX);
 	if (data->palette % PALETTE == 5)
-		color = encode_trgb(255, it * 255 / IT_MAX, it * 255 / IT_MAX, it * 255 / IT_MAX);
+		color = encode_trgb(255, it * 255 / IT_MAX,
+				it * 255 / IT_MAX, it * 255 / IT_MAX);
 	my_mlx_pixel_put(data, x, y, color);
-} 
+}

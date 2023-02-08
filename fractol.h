@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:33 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 21:12:57 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:56:31 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 # include "libft.h"
 # include "mlx.h"
 # include <stdlib.h>
-# include <stdio.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include <complex.h>
 # include <math.h>
 
 # define WIDTH 1080
@@ -45,7 +43,7 @@ typedef struct s_data
 	double	max_i;
 	double	ji;
 	double	jr;
-	double	zoom;
+	int		zoom;
 	int		color;
 	int		it;
 	int		it_max;
@@ -68,7 +66,6 @@ typedef struct s_complex
 
 void	click_configuration(t_data *data, int x, int y);
 void	switch_julia_configuration(int keycode, t_data *data);
-void	color_init(t_data *data);
 int		get_blue(int trgb);
 int		get_green(int trgb);
 int		get_red(int trgb);
@@ -99,6 +96,5 @@ double	get_pos_y(t_data *data);
 void	apply_color(t_data *data, int x, int y, double it);
 int		ft_abs(t_complex z);
 void	burningship(t_data *data);
-int		ft_abs2(double v);
 
 #endif

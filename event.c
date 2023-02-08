@@ -6,11 +6,23 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:28 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 19:15:04 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:23:55 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	handle_arrows(int keycode, t_data *data)
+{
+	if (keycode == 65361)
+		move(data, 0.1, 'R');
+	else if (keycode == 65362)
+		move(data, 0.1, 'D');
+	else if (keycode == 65363)
+		move(data, 0.1, 'L');
+	else if (keycode == 65364)
+		move(data, 0.1, 'U');
+}
 
 int	handle_keypress(int keycode, t_data *data)
 {
@@ -24,6 +36,8 @@ int	handle_keypress(int keycode, t_data *data)
 		graph_switch(data);
 	else if (keycode == 32)
 		data->palette++;
+	else if (keycode >= 65361 && keycode <= 65364)
+		handle_arrows(keycode, data);
 	switch_julia_configuration(keycode, data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:37 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 21:09:02 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:30:27 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	data_init(t_data *data)
 	data->ll = 0;
 	data->bpp = 0;
 	scop_init(data);
-	data->zoom = 200;
+	data->zoom = 1;
 	data->it_max = 50;
 	data->axe = 'r';
 	data->step = 0.01;

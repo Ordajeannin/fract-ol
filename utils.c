@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:07 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 21:00:34 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:53:19 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	ft_error(t_data *data)
 {
 	ft_printf("\nuse ./aout | mandelbrot | julia <options>\n\n");
-	ft_printf("-	<options> are real and imaginary part of julia :  -2 <= r|i <= 2\n");
+	ft_printf("-	<options> are real and imaginary part of julia :  ");
+	ft_printf("-2 <= r|i <= 2\n");
 	ft_printf("-	'g' display a graph\n");
 	ft_printf("-	'+'/'-' to surf on this graph. 'r'/'i' to switch axe\n");
 	ft_printf("-	'1'->'9' to change change the step, biggest to lowest\n");
@@ -35,19 +36,14 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	ft_abs(t_complex z)
 {
-	double x;
-	double y;
-	double value;
+	double	x;
+	double	y;
+	double	value;
 
 	x = z.r;
 	y = z.i;
-	value = sqrt(x*x + y*y);
+	value = sqrt(x * x + y * y);
 	return (value);
-}
-
-int	ft_abs2(double v)
-{
-	return (sqrt(v * v));
 }
 
 int	render(t_data *data)

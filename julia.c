@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:44 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/03 20:55:33 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:46:07 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@
 
 static double	calculate_fractal(t_data *data, double zr, double zi)
 {
-	int n;
-	double tmp;
-	t_complex j;
-	t_complex z;
+	int			n;
+	double		tmp;
+	t_complex	j;
+	t_complex	z;
 
 	j.r = data->jr;
 	j.i = data->ji;
@@ -55,7 +55,6 @@ static double	calculate_fractal(t_data *data, double zr, double zi)
 		z.i = tmp;
 		n++;
 	}
-	// return (n);
 	if (n == IT_MAX)
 		return (n);
 	else
@@ -68,7 +67,7 @@ void	julia(t_data *data)
 	int		y;
 	double	pos_r;
 	double	pos_i;
-	double		nb_iter;
+	double	nb_iter;
 
 	mlx_clear_window(data->mlx, data->win);
 	y = -1;

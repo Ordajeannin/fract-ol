@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:10 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:59:31 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:35:42 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	zoom(t_data *f, double zoom)
 	double	center_r;
 	double	center_i;
 
+	if (zoom == 0.5)
+	{
+		f->zoom *= 2;
+		ft_printf("zoom factor : %d\n", f->zoom);
+	}
 	center_r = f->min_r - f->max_r;
 	center_i = f->max_i - f->min_i;
 	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;
