@@ -6,13 +6,17 @@
 #    By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 16:45:54 by ajeannin          #+#    #+#              #
-#    Updated: 2023/02/08 20:50:58 by ajeannin         ###   ########.fr        #
+#    Updated: 2023/02/09 19:36:09 by ajeannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fractol
 
-SRC			=	main.c event.c init.c utils.c parsing.c mandelbrot.c colors.c colors2.c colors3.c julia.c julia_config.c zoom.c orthonormal.c get_pos.c burning_ship.c
+SRC_DIR		=	src/
+
+SRC_FILES	=	main.c event.c init.c utils.c parsing.c mandelbrot.c colors.c colors2.c colors3.c julia.c julia_config.c zoom.c orthonormal.c get_pos.c burning_ship.c
+
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
 INCLUDES	=	fractol.h
 
@@ -22,19 +26,22 @@ LIBFT		=	-Llibft -lft
 
 CC			=	gcc
 
-CCFLAGS		=	#-Wall -Werror -Wextra
+CCFLAGS		=	-Wall -Werror -Wextra
+
+IT_MAX		=	1000
+
 
 $(NAME):
-		$(CC) $(CCFLAGS) $(SRC) $(MLX) $(LIBFT) -g -o $(NAME)
+		$(CC) $(CCFLAGS) $(SRC) $(MLX) $(LIBFT) -D IT_MAX=$(IT_MAX) -g -o $(NAME)
 
 all:	$(NAME)
 
 clean:
 	make clean -C libft/
-	rm $(NAME)
 
 fclean: clean
-
+	rm $(NAME)
+	
 norme:
 	norminette $(SRC) libft
 
