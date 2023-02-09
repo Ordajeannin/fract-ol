@@ -6,7 +6,7 @@
 #    By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 16:45:54 by ajeannin          #+#    #+#              #
-#    Updated: 2023/02/09 19:36:09 by ajeannin         ###   ########.fr        #
+#    Updated: 2023/02/09 19:43:27 by ajeannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,6 @@ fclean: clean
 	rm $(NAME)
 	
 norme:
-	norminette $(SRC) libft
+	norminette $(SRC) libft includes
 
 re: fclean all
