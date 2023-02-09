@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:39:50 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:05 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/09 21:55:54 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	psychedelic_color(t_data *data, int it)
 {
-	int	color;
+	volatile int	color;
 
 	if (data->palette % PALETTE == 9)
 		color = encode_trgb(255, it * 5, it * 10, it * 20);
@@ -27,7 +27,7 @@ static int	psychedelic_color(t_data *data, int it)
 
 static int	basic_color(t_data *data, double it)
 {
-	int	color;
+	volatile int	color;
 
 	if (data->palette % PALETTE == 5)
 		color = encode_trgb(255, it * 255 / IT_MAX, 0, 0);
@@ -43,7 +43,7 @@ static int	basic_color(t_data *data, double it)
 
 static int	beautiful_color(t_data *data, double it)
 {
-	int	color;
+	volatile int	color;
 
 	if (data->palette % PALETTE == 0)
 		color = encode_trgb(255, it * 5 * 255 / IT_MAX,

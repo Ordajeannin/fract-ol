@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:07 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:45 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/09 22:19:37 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 int	ft_error(void)
 {
-	ft_printf("\nuse ./fractol | mandelbrot | julia <options> | ");
+	ft_printf("\n                      DOESN'T WORK?\n");
+	ft_printf("--------------------------------------------------------\n\n");
+	ft_printf("use ./fractol | mandelbrot | julia <options> | ");
 	ft_printf("burningship\n\n");
 	ft_printf("-	<options> are real and imaginary part of julia :  ");
 	ft_printf("-2 <= r|i <= 2\n");
+	ft_printf("-	on julia? click wherever you want!\n\n");
+	ft_printf("--------------------------------------------------------\n\n");
+	ft_printf("     AND NOW... YOUR KEYBOARD IS YOUR NEW BEST FRIEND :)\n\n");
 	ft_printf("-	'g' display a graph\n");
 	ft_printf("-	'+'/'-' to surf on this graph. 'r'/'i' to switch axe\n");
-	ft_printf("-	'1'->'9' to change change the step, biggest to lowest\n");
+	ft_printf("-	'1'->'9' to change the step, biggest to lowest\n");
 	ft_printf("-	'Spacebar' to change colors\n");
-	ft_printf("\n                   and... enjoy :)\n\n");
+	ft_printf("-	zoom with mouse's wheel\n");
+	ft_printf("-	increase 'IT_MAX' in the makefile to improve details\n");
+	ft_printf("\n\n\nenjoy!\n\n");
 	return (1);
 }
 
@@ -36,7 +43,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *) pixel = color;
 }
 
-int	ft_abs(t_complex z)
+double	ft_abs(t_complex z)
 {
 	double	x;
 	double	y;

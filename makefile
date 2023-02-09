@@ -6,7 +6,7 @@
 #    By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 16:45:54 by ajeannin          #+#    #+#              #
-#    Updated: 2023/02/09 19:43:27 by ajeannin         ###   ########.fr        #
+#    Updated: 2023/02/09 21:53:47 by ajeannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIBFT		=	-Llibft -lft
 
 CC			=	gcc
 
-CCFLAGS		=	-Wall -Werror -Wextra
+CCFLAGS		=	-Wall -Werror -Wextra -flto -Ofast
 
 IT_MAX		=	1000
 
