@@ -6,19 +6,19 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:33 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 22:00:46 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:41:43 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# undef _GLIBCXX_DEBUG
-# pragma GCC optimize("Ofast,inline")
-# pragma GCC target("bmi,bmi2,lzcnt,popcnt")
-# pragma GCC target("movbe")
-# pragma GCC target("aes,pclmul,rdrnd")
-# pragma GCC target("avx,avx2,f16c,fma,sse3,ssse3,sse4.1,sse4.2")
+// # undef _GLIBCXX_DEBUG
+// # pragma GCC optimize("Ofast,inline")
+// # pragma GCC target("bmi,bmi2,lzcnt,popcnt")
+// # pragma GCC target("movbe")
+// # pragma GCC target("aes,pclmul,rdrnd")
+// # pragma GCC target("avx,avx2,f16c,fma,sse3,ssse3,sse4.1,sse4.2")
 
 # include "../libft/includes/libft.h"
 # include "../minilibx/mlx.h"

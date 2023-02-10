@@ -6,7 +6,7 @@
 #    By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 16:45:54 by ajeannin          #+#    #+#              #
-#    Updated: 2023/02/09 21:53:47 by ajeannin         ###   ########.fr        #
+#    Updated: 2023/02/10 14:48:56 by ajeannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CC			=	gcc
 
 CCFLAGS		=	-Wall -Werror -Wextra -flto -Ofast
 
-IT_MAX		=	1000
+IT_MAX		=	60
 
 
 $(NAME):
