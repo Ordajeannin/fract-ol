@@ -41,7 +41,7 @@ Here is an example :
 
 
 color palette can change a lot the view you can have, see :
-```./fractol mandelbrot          it_max = 100 000          zoom = 5 * 10^11
+```./fractol mandelbrot```          it_max = 100 000          zoom = 5 * 10^11
 
-![mandelbrotmc](/screenshots/mandelbrot_10%5E5_5*10%5E11mc.png)
-![mandelbrotuc](/screenshots/mandelbrot10%5E5_5*10%5E11uc.png)
+![mandelbrot mc](/screenshots/mandelbrot_10%5E5_5*10%5E11mc.png)
+![mandelbrot uc](/screenshots/mandelbrot10%5E5_5*10%5E11uc.png)
