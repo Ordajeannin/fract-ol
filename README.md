@@ -32,6 +32,7 @@ Params :
 
 You can modify the value ```IT_MAX``` in the  ```makefile``` . More iterations = more details.
 Here is an example :
+
 ```./fractol julia -0.8696 0.26```   it_max = 60
 ![julia](/screenshots/julia_option.png)
 
@@ -39,8 +40,11 @@ Here is an example :
 ```./fractol mandelbrot```       it_max = 100 000          zoom = 10^6
 ![mandelbrot](/screenshots/mandelbrot_it10%5E5_zoom10%5E6.png)
 
+```./fractol burningship```         it_max = 100 000
+![burningship](/screenshots/burningship1000.png)
 
 color palette can change a lot the view you can have, see :
+
 ```./fractol mandelbrot```          it_max = 100 000          zoom = 5 * 10^11
 
 ![mandelbrot mc](/screenshots/mandelbrot_10%5E5_5*10%5E11mc.png)
