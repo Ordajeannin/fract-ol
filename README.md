@@ -31,7 +31,22 @@ Params :
 	to give yours. Real part first, Imaginary part then, both between -2.0/+2.0
 
 You can modify the value ```IT_MAX``` in the  ```makefile``` . More iterations = more details.
-Here is an example :
+(examples at the end of file)
+
+
+## HOW TO USE :
+
+You can use your keyboard while the program is running :
+-	zoom wherever you want with the mouse's wheel
+-	click wherever you want on the complex plan, with the julia set :)
+-	'g' display the complex plan's graph
+-	'+'/'-' to surf on this graph, with the julia set
+-	'1' -> '9' to change the step while surfing, biggest to lowest
+-	'Spacebar' to change the colors, 12 set available
+
+
+# ENJOY! :)
+
 
 ```./fractol julia -0.8696 0.26```   it_max = 60
 ![julia](/screenshots/julia_option.png)
