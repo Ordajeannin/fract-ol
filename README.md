@@ -33,6 +33,7 @@ Params :
 You can modify the value ```IT_MAX``` in the  ```makefile``` . More iterations = more details.
 If you want to see multi-julia, you can change the ```POW``` value to (2 by default)
 (examples at the end of file)
+run ```make re``` to update the executable, once you changed values!
 
 
 ## HOW TO USE :

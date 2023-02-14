@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:41 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/14 17:04:53 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 20:26:54 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	switch_julia_configuration(int keycode, t_data *data)
 		data->pow = 1;
 	else if (keycode == 112 && data->pow == 1)
 		data->pow = 0;
+	printf("position : %lf %lf\n", data->jr, data->ji);
 }
