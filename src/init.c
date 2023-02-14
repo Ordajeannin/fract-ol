@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:37 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/14 17:06:01 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:57:55 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	scop_init(t_data *data)
 	{
 		data->min_r = -2.0;
 		data->max_r = 1.0;
-		data->min_i = 1.5;
 		data->max_i = -1.5;
+		data->min_i = 1.5;
 	}
 	if (data->fract == 1)
 	{

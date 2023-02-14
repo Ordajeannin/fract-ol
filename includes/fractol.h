@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:33 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/14 17:25:09 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:10:29 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # ifndef POW
 #  define POW 5
 # endif
-# define WIDTH 1920
+# define WIDTH 1080
 # define HEIGHT 1080
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00

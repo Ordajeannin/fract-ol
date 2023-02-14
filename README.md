@@ -31,6 +31,7 @@ Params :
 	to give yours. Real part first, Imaginary part then, both between -2.0/+2.0
 
 You can modify the value ```IT_MAX``` in the  ```makefile``` . More iterations = more details.
+If you want to see multi-julia, you can change the ```POW``` value to (2 by default)
 (examples at the end of file)
 
 
@@ -43,6 +44,7 @@ You can use your keyboard while the program is running :
 -	'+'/'-' to surf on this graph, with the julia set
 -	'1' -> '9' to change the step while surfing, biggest to lowest
 -	'Spacebar' to change the colors, 12 set available
+-	'p' to change the power of julia's function
 
 
 # ENJOY! :)

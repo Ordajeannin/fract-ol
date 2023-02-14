@@ -6,12 +6,14 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:42:32 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:21:31 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:12:14 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+//Z0 = 0
+//Zn+1 = |Zn|^2 + c
 static double	calculate_fractal(double cr, double ci)
 {
 	int			n;

@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:44 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/14 17:19:40 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:09:10 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 // 	return (n);
 // }
 
+//Z0 = z;
+//Zn+1 = (Zn)^POW + j
 static double	calculate_multifract(t_data *data, double zr, double zi)
 {
 	int			n;
@@ -63,10 +65,10 @@ static double	calculate_multifract(t_data *data, double zr, double zi)
 		return (n + 1 - log(log2(ft_abs(z))));
 }
 
-// /*
-// Z0 = j
-// Zn+1 = 
-// */
+// Z0 = z
+// Zn+1 = Zn + j
+// z(zr, zi) is the pixel-point related in the complex plan
+// j(jr, ji) is a complex nbr set by user
 static double	calculate_fractal(t_data *data, double zr, double zi)
 {
 	int			n;
@@ -94,10 +96,9 @@ static double	calculate_fractal(t_data *data, double zr, double zi)
 		return (n + 1 - log(log2(ft_abs(z))));
 }
 
-/*
-Determine the position of each pixel on the complex plan,
-compute them, and apply the color.
-*/
+
+// Determine the position of each pixel on the complex plan,
+// compute them, and apply the color.
 void	julia(t_data *data)
 {
 	int		x;
