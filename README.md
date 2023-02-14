@@ -22,11 +22,11 @@ You are now able to use it! but not alone, you will have to add some params.
 like this : ```./fractol <set> <options>```
 
 Params :
--  <set> is the fractal's name you want to generate. 
+- 	'set' is the fractal's name you want to generate. 
 	-> mandelbrot
 	-> julia
 	-> burningship
-- <options> is only for julia. 
+-	'options' is only for julia. 
 	Since it need coordonates on the complex plan to initialize, you are able
 	to give yours. Real part first, Imaginary part then, both between -2.0/+2.0
 
