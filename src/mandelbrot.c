@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:57 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:33 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:09:06 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@
 // 	// 	return (data->it);
 // }
 
+// A black pixel went to IT_MAX, so the more you have black one a picture
+// the slower is the generation. so we want to optimize it!
+// For exemple, in mandelbrot set, we already know coordonates
+// of points who belong to the "cardioid" part,
+// and the main "bulb" to. so no need to compute them!
+// if x < p - 2(p^2) + 1/4, with p = sqrt((x -1/4)^2 + y^2)
+// 	-> point belong to the cardioid, black pixel
+// if (x + 1)^2 + y^2 < 1/16
+// 	-> point belong to the main bulb, black pixel
 static int	opti_fractal(double x, double y)
 {
 	double	p;
@@ -54,6 +63,13 @@ static int	opti_fractal(double x, double y)
 	return (42);
 }
 
+/*
+mandelbrot :  
+Z0 = 0
+Zn+1 = Zn^2 + c
+
+c/z are points on the complex plan, so c(cr, ci) and z(zr, zi)
+*/
 static double	calculate_fractal(double cr, double ci)
 {
 	int			n;
@@ -81,7 +97,12 @@ static double	calculate_fractal(double cr, double ci)
 		return (n + 1 - log(log2(ft_abs(z))));
 }
 
-//	#pragma omp parallel for
+/*
+Determine the position of each pixel on the complex plan,
+compute them, and apply the color.
+"#pragma omp parallel for" multithreading?
+	didn't tryed, just saw that on StackOverflow, maybe for later
+*/
 void	mandelbrot(t_data *data)
 {
 	int		x;

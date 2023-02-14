@@ -6,12 +6,13 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:28 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:09 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:44:20 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+//shift the view
 static void	handle_arrows(int keycode, t_data *data)
 {
 	if (keycode == 65361)
@@ -24,6 +25,20 @@ static void	handle_arrows(int keycode, t_data *data)
 		move(data, 0.1, 'U');
 }
 
+/*
+Even if this project is awesome, user may want, one day, to touch some grass.
+So they have to escape the program...
+Yes, I know, but hold your tears, avoid the leaks
+*/
+int	handle_close(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	data->win = NULL;
+	mlx_destroy_image(data->mlx, data->img);
+	return (0);
+}
+
+//handle keyboard input, like escape, graph, colors, or even julia configuration
 int	handle_keypress(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
@@ -42,14 +57,7 @@ int	handle_keypress(int keycode, t_data *data)
 	return (0);
 }
 
-int	handle_close(t_data *data)
-{
-	mlx_destroy_window(data->mlx, data->win);
-	data->win = NULL;
-	mlx_destroy_image(data->mlx, data->img);
-	return (0);
-}
-
+//handle zoom and julia's click-configuration
 int	handle_mouse(int keycode, int x, int y, t_data *data)
 {
 	if (keycode == 4)

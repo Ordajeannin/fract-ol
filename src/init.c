@@ -6,12 +6,13 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:37 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/10 14:42:33 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:06:01 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+//initialize min/max values of the complex plan
 static void	scop_init(t_data *data)
 {
 	if (data->fract == 0)
@@ -37,6 +38,7 @@ static void	scop_init(t_data *data)
 	}
 }
 
+//initialize the data structure
 void	data_init(t_data *data)
 {
 	data->mlx = NULL;
@@ -53,8 +55,10 @@ void	data_init(t_data *data)
 	data->step = 0.01;
 	data->graph = 0;
 	data->palette = 0;
+	data->pow = 0;
 }
 
+//initialize mlx, window, and first image
 int	data_set(t_data *data)
 {
 	data->mlx = mlx_init();

@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:07 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 22:19:37 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:06:05 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ double	ft_abs(t_complex z)
 	return (value);
 }
 
+//call the functions we need to display the specified fractal's set
+//and then, push the generated image to the window
 int	render(t_data *data)
 {
 	if (data->win == NULL)

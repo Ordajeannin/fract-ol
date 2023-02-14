@@ -6,12 +6,17 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:51 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:29 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:46:43 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+/*
+main function's goal is to initialize data structure, handle the loop, and deal
+with events. In fact... she don't do that, she just call slave's functions.
+But here we can see the code's structure
+*/
 int	main(int ac, char **av)
 {
 	t_data	data;

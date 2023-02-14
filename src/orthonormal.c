@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:00 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:36 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:46:43 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	mandelbrot_graph(t_data *data, double x, double y)
 		my_mlx_pixel_put(data, (int)x, (int)y, RED);
 }
 
+//draw the graph over the generated image, before the push
 void	graph_draw(t_data *data)
 {
 	int		x;

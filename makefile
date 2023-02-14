@@ -6,7 +6,7 @@
 #    By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 16:45:54 by ajeannin          #+#    #+#              #
-#    Updated: 2023/02/10 14:48:56 by ajeannin         ###   ########.fr        #
+#    Updated: 2023/02/14 17:20:36 by ajeannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,13 @@ CC			=	gcc
 
 CCFLAGS		=	-Wall -Werror -Wextra -flto -Ofast
 
-IT_MAX		=	60
+IT_MAX		=	100
+
+POW			=	4
 
 
 $(NAME):
-		$(CC) $(CCFLAGS) $(SRC) $(MLX) $(LIBFT) -D IT_MAX=$(IT_MAX) -g -o $(NAME)
+		$(CC) $(CCFLAGS) $(SRC) $(MLX) $(LIBFT) -D IT_MAX=$(IT_MAX) -D POW=$(POW) -g -o $(NAME)
 
 all:	$(NAME)
 

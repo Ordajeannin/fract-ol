@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:46:03 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/09 19:22:40 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:06:17 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ static int	skip_space_sign(char *str, int *is_neg)
 	return (i);
 }
 
+/*
+user's input will be an ascii string
+we need to convert it in a double value to use it, that's this function's goal
+"Ascii TO Double"
+*/
 static double	ft_atod(char *nbr)
 {
 	int		i;
@@ -57,6 +62,11 @@ static double	ft_atod(char *nbr)
 	return (nb * is_neg);
 }
 
+/*
+if we want to display a julia set, we will need more options:
+a complex number, or in fact coordonates of a point in a complex plan
+user can specify it, but we need to set default value if he don't
+*/
 static int	set_julia(t_data *data, int ac, char **av)
 {
 	if (ac == 2)
@@ -76,6 +86,7 @@ static int	set_julia(t_data *data, int ac, char **av)
 	return (0);
 }
 
+//first parsing function : what set should we compute?
 int	which_fract(t_data *data, int ac, char **av)
 {
 	if (ft_strncmp(av[1], "mandelbrot", 11) == 0 && ac == 2)

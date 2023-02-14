@@ -6,7 +6,7 @@
 /*   By: ajeannin <ajeannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:45:33 by ajeannin          #+#    #+#             */
-/*   Updated: 2023/02/10 14:41:43 by ajeannin         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:25:09 by ajeannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@
 # ifndef IT_MAX
 #  define IT_MAX 60
 # endif
-# define WIDTH 1080
+# ifndef POW
+#  define POW 5
+# endif
+# define WIDTH 1920
 # define HEIGHT 1080
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00
@@ -64,7 +67,7 @@ typedef struct s_data
 	double	step;
 	int		graph;
 	int		palette;
-
+	int		pow;
 }	t_data;
 
 typedef struct s_complex
